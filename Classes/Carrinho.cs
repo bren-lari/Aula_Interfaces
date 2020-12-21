@@ -12,10 +12,10 @@ namespace Interface.Classes
         List<Produto> carrinho = new List<Produto>();
 
 
-        public void Alterar(int _codigo, Produto Novoproduto)
+        public void Alterar(int cod, Produto produto)
         {
-            carrinho.Find(x => x.Codigo == _codigo ).Codigo = Novoproduto.Codigo;
-            carrinho.Find(x => x.Codigo == _codigo ).Nome = Novoproduto.Nome;
+            carrinho.Find(x => x.Codigo == cod ).Nome = produto.Nome;
+            carrinho.Find(x => x.Codigo == cod ).Preco = produto.Preco;
         }
 
         public void Cadastrar(Produto produto)

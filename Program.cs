@@ -9,7 +9,11 @@ namespace Interface
         {
             Console.Clear();
 
-            Console.WriteLine("--- Seção produtos ---\r\n");
+            Console.WriteLine("\r\n--- Seção produtos ---\r\n");
+
+            Carrinho carrinho = new Carrinho();
+
+            Console.WriteLine("Lista de produtos: \r\n");
 
             Produto p = new Produto();
 
@@ -34,16 +38,27 @@ namespace Interface
            p4.Nome = "Bicicleta CANON";
            p4.Preco = 2.789f;
 
-           Carrinho carrinho = new Carrinho();
+
             carrinho.Cadastrar(p);
             carrinho.Cadastrar(p2);
             carrinho.Cadastrar(p3);
             carrinho.Cadastrar(p4);
+            carrinho.Listar();
 
+            Console.ForegroundColor = ConsoleColor.Blue;
+            
+            Console.WriteLine("\r\n Lista alterada: \r\n");
+
+           carrinho.Alterar(p.Codigo, p4);
+           carrinho.Listar();
+           Console.ResetColor();
+
+           Console.WriteLine("\r\n Lista com produto deletado: \r\n");
+           Console.ForegroundColor = ConsoleColor.Magenta;
+
+           carrinho.Deletar(p4);
 
            carrinho.Listar();
-
-           carrinho.Alterar(2, p4);
 
         }
     }
